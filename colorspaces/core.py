@@ -12,7 +12,7 @@ def create_image_by_lab(lightness, a, b) -> Image:
     :param lightness: L* indicates lightness with 0 as black and 100 as white
     :param a: a* color value where -128 is green and +128 is red
     :param b: b* color value where -128 is blue and +128 is yellow
-    :return: Image
+    :return: RGB Image
     """
     lab_array = numpy.zeros((500, 500, 3))
     lab_array[:, :, 0] = lightness
@@ -26,6 +26,14 @@ def create_image_by_lab(lightness, a, b) -> Image:
 
 
 def create_image_by_rgb(red, green, blue) -> Image:
+    """
+    Create a 500x500 RGB image by red, green and blue values
+
+    :param red: red value between 0 and 255
+    :param green: green value between 0 and 255
+    :param blue: blue value between 0 and 255
+    :return: RGB Image
+    """
     rgb_array = numpy.zeros((500, 500, 3), dtype=numpy.uint8)
     rgb_array[:, :, 0] = red
     rgb_array[:, :, 1] = green
