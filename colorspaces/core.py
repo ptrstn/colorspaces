@@ -34,9 +34,9 @@ def create_image_by_rgb(red, green, blue):
 
 
 def convert_lab_array_to_rgb(array: numpy.ndarray) -> numpy.ndarray:
-    image_rgb_float = lab2rgb(array)
-    image_rgb_uint8 = skimage.img_as_ubyte(image_rgb_float)
-    return image_rgb_uint8
+    rgb_array_float = lab2rgb(array)
+    rgb_array_uint8 = skimage.img_as_ubyte(rgb_array_float)
+    return rgb_array_uint8
 
 
 def convert_rgb_array_to_lab(array: numpy.ndarray) -> numpy.ndarray:
