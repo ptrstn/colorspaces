@@ -2,7 +2,7 @@ import numpy
 import skimage
 from PIL import Image
 from matplotlib import pyplot
-from skimage.color import lab2rgb
+from skimage.color import lab2rgb, rgb2lab
 
 
 def create_image_by_lab(lightness, a, b):
@@ -31,6 +31,16 @@ def create_image_by_rgb(red, green, blue):
     rgb_pixel[:, :, 1] = green
     rgb_pixel[:, :, 2] = blue
     return Image.fromarray(rgb_pixel, mode="RGB")
+
+
+def convert_lab_array_to_rgb(array: numpy.ndarray) -> numpy.ndarray:
+    image_rgb_float = lab2rgb(array)
+    image_rgb_uint8 = skimage.img_as_ubyte(image_rgb_float)
+    return image_rgb_uint8
+
+
+def convert_rgb_array_to_lab(array: numpy.ndarray) -> numpy.ndarray:
+    return rgb2lab(array)
 
 
 def show_image(image, title=None):
